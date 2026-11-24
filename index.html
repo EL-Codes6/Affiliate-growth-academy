@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Affiliate Growth Academy | Affiliate Marketing Coaching</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Text:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#0a0a0a;--secondary:#111;--accent:#d4ff3f;--accent-dim:#b8e62e;
+  --text:#f5f5f5;--text-muted:#a0a0a0;--border:#222;--card-bg:#161616;
+  --font-display:'Bebas Neue',sans-serif;--font-serif:'DM Serif Text',serif;
+  --font-body:'Plus Jakarta Sans',sans-serif;--t:0.3s cubic-bezier(.4,0,.2,1);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--primary);color:var(--text);font-family:var(--font-body);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body.menu-open{overflow:hidden}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+img{max-width:100%;display:block;height:auto}
+button{font-family:inherit}
+.container{max-width:1280px;margin:0 auto;padding:0 clamp(1rem,4vw,2rem)}
+::selection{background:var(--accent);color:var(--primary)}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:var(--primary)}
+::-webkit-scrollbar-thumb{background:var(--accent);border-radius:10px}
+.section-title{font-family:var(--font-display);font-size:clamp(2.2rem,5vw,4rem);letter-spacing:2px;line-height:1.05;text-transform:uppercase;margin-bottom:1.5rem}
+.section-title em{font-family:var(--font-serif);font-style:italic;color:var(--accent);text-transform:none;display:inline-block;animation:softFloat 5s ease-in-out infinite}
+.section-subtitle{font-size:clamp(1rem,1.5vw,1.15rem);color:var(--text-muted);max-width:600px;margin-bottom:3rem}
+.results-showcase{padding:6rem 0 2rem}
+.carousel-shell{position:relative;max-width:1180px;margin:0 auto}
+.carousel{position:relative;background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:28px;padding:1rem;box-shadow:0 20px 60px rgba(0,0,0,.28)}
+.carousel-viewport{overflow:hidden;border-radius:20px}
+.carousel-track{display:flex;transition:transform .7s cubic-bezier(.22,1,.36,1)}
+.slide{position:relative;min-width:100%;height:520px;overflow:hidden}
+.slide img{width:100%;height:100%;object-fit:cover;filter:saturate(1.05) contrast(1.08)}
+.slide::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.15),rgba(10,10,10,.78));z-index:1}
+.slide-content{position:absolute;left:0;right:0;bottom:0;padding:2rem 2rem 1.5rem;z-index:2;display:flex;flex-direction:column;align-items:flex-start;gap:.8rem}
+.slide-tag{display:inline-flex;align-items:center;padding:.45rem .9rem;border:1px solid rgba(212,255,63,.4);background:rgba(10,10,10,.35);backdrop-filter:blur(8px);border-radius:999px;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.slide-content h3{font-size:clamp(2rem,4vw,3.2rem);font-family:var(--font-display);line-height:.9;letter-spacing:1px;text-transform:uppercase}
+.slide-content p{max-width:620px;color:rgba(245,245,245,.9);font-size:1rem}
+.carousel-button{position:absolute;top:50%;transform:translateY(-50%);width:50px;height:50px;border-radius:50%;border:1px solid rgba(212,255,63,.4);background:rgba(10,10,10,.75);color:var(--text);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:3;transition:all var(--t)}
+.carousel-button:hover{background:var(--accent);color:var(--primary);border-color:var(--accent);box-shadow:0 12px 28px rgba(212,255,63,.25)}
+.carousel-button.prev{left:-18px}.carousel-button.next{right:-18px}
+.carousel-dots{display:flex;justify-content:center;gap:.6rem;margin-top:1.25rem}
+.carousel-dot{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.2);border:0;cursor:pointer;transition:all var(--t)}
+.carousel-dot.active{background:var(--accent);box-shadow:0 0 0 4px rgba(212,255,63,.15)}
+@media(max-width:768px){
+  .results-showcase{padding-top:5rem}
+  .carousel{padding:.75rem}
+  .slide{height:420px}
+  .slide-content{padding:1.5rem 1.25rem 1rem}
+  .carousel-button{width:42px;height:42px}
+  .carousel-button.prev{left:10px}.carousel-button.next{right:10px}
+}
+@media(max-width:480px){
+  .slide{height:360px}
+  .slide-content h3{font-size:1.8rem}
+  .slide-content p{font-size:.9rem}
+}
+@keyframes softFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.preloader{position:fixed;inset:0;background:var(--primary);z-index:10000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;transition:opacity .8s ease,visibility .8s ease}
+.preloader.done{opacity:0;visibility:hidden}
+.preloader-logo{font-family:var(--font-display);font-size:clamp(2rem,6vw,4rem);letter-spacing:4px;display:flex;align-items:center;gap:1rem}
+.preloader-mark{width:60px;height:60px;background:var(--accent);color:var(--primary);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:2rem;animation:spinPulse 1.5s ease-in-out infinite}
+.preloader-bar{width:200px;height:3px;background:var(--border);border-radius:3px;overflow:hidden}
+.preloader-bar span{display:block;height:100%;background:var(--accent);width:0;animation:loadBar 1.8s var(--ease-out) forwards}
+@keyframes loadBar{to{width:100%}}
+@keyframes spinPulse{0%,100%{transform:rotate(-5deg) scale(1)}50%{transform:rotate(5deg) scale(1.1)}}
+.scroll-progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--accent),#7dff6b);z-index:2000;box-shadow:0 0 12px rgba(212,255,63,.6);transition:width .1s linear}
+.cursor-dot,.cursor-ring{position:fixed;top:0;left:0;pointer-events:none;z-index:9999;border-radius:50%;transform:translate(-50%,-50%);opacity:0;transition:opacity .3s}
+.cursor-dot{width:6px;height:6px;background:var(--accent)}
+.cursor-ring{width:40px;height:40px;border:1.5px solid rgba(212,255,63,.5);transition:width .3s,height .3s,background .3s,opacity .3s}
+.cursor-ring.hover{width:60px;height:60px;background:rgba(212,255,63,.1)}
+@media(hover:hover) and (pointer:fine){.cursor-dot,.cursor-ring{opacity:1}}
+.navbar{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:1.5rem 0;transition:padding var(--t);animation:navSlideDown .8s var(--ease-out) both;animation-delay:.3s}
+@keyframes navSlideDown{from{transform:translateY(-100%);opacity:0}to{transform:translateY(0);opacity:1}}
+.navbar::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid transparent;opacity:0;transition:opacity var(--t),border-color var(--t)}
+.navbar.scrolled{padding:.9rem 0}
+.navbar.scrolled::before{opacity:1;border-bottom-color:var(--border)}
+.nav-inner{position:relative;display:flex;justify-content:space-between;align-items:center;z-index:2}
+.logo{display:flex;align-items:center;gap:.75rem;font-family:var(--font-display);font-size:clamp(1.3rem,2.4vw,1.8rem);letter-spacing:1.5px;color:var(--text);position:relative;z-index:3}
+.logo-mark{width:40px;height:40px;background:var(--accent);color:var(--primary);display:flex;align-items:center;justify-content:center;border-radius:8px;font-family:var(--font-display);font-size:1.5rem;transform:rotate(-5deg);transition:transform .5s var(--ease-out),box-shadow .5s;animation:logoPulse 3s ease-in-out infinite;flex-shrink:0}
+.logo-image{width:44px;height:44px;object-fit:cover;border-radius:8px;flex-shrink:0;transition:transform .5s var(--ease-out),box-shadow .5s}
+.logo:hover .logo-mark{transform:rotate(0) scale(1.1);animation-play-state:paused;box-shadow:0 0 30px rgba(212,255,63,.7)}
+.logo:hover .logo-image{transform:scale(1.08);box-shadow:0 0 30px rgba(212,255,63,.7)}
+@keyframes logoPulse{0%,100%{box-shadow:0 0 0 rgba(212,255,63,0);transform:rotate(-5deg)}50%{box-shadow:0 0 25px rgba(212,255,63,.45);transform:rotate(-2deg)}}
+.nav-links{display:flex;gap:clamp(1rem,2.5vw,2.5rem);align-items:center;position:relative;z-index:2}
+.nav-links>a:not(.btn){font-size:.9rem;font-weight:500;color:var(--text-muted);transition:color var(--t);position:relative;padding:.4rem .1rem;display:inline-block;animation:navLinkIn .6s var(--ease-out) both}
+.nav-links>a:nth-child(1){animation-delay:.5s}.nav-links>a:nth-child(2){animation-delay:.6s}.nav-links>a:nth-child(3){animation-delay:.7s}.nav-links>a:nth-child(4){animation-delay:.8s}
+@keyframes navLinkIn{from{opacity:0;transform:translateY(-15px)}to{opacity:1;transform:translateY(0)}}
+.nav-links>a:not(.btn):hover{color:var(--accent);transform:translateY(-2px)}
+.nav-links>a:not(.btn)::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,var(--accent),#7dff6b);transform:scaleX(0);transform-origin:right;transition:transform .4s var(--ease-out);border-radius:2px}
+.nav-links>a:not(.btn):hover::after{transform:scaleX(1);transform-origin:left}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.9rem 2rem;font-family:var(--font-body);font-weight:600;font-size:.9rem;border-radius:50px;border:none;cursor:pointer;transition:transform var(--t),box-shadow var(--t),background var(--t),border-color var(--t),color var(--t);position:relative;overflow:hidden;will-change:transform}
+.btn-primary{background:var(--accent);color:var(--primary)}
+.btn-primary::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.6),transparent);transition:left .6s ease}
+.btn-primary:hover::before{left:100%}
+.btn-primary:hover{background:var(--accent-dim);box-shadow:0 10px 30px rgba(212,255,63,.35)}
+.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.nav-links .btn{animation:ctaGlow 2.5s ease-in-out infinite}
+@keyframes ctaGlow{0%,100%{box-shadow:0 0 0 rgba(212,255,63,0)}50%{box-shadow:0 0 20px rgba(212,255,63,.4)}}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:.6rem;position:relative;z-index:10;flex-shrink:0}
+.hamburger span{display:block;width:26px;height:2px;background:var(--text);transition:transform .4s var(--ease-out),opacity .3s,background .3s;border-radius:2px;transform-origin:center}
+.hamburger.active span:nth-child(1){transform:translateY(7px) rotate(45deg);background:var(--accent)}
+.hamburger.active span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg);background:var(--accent)}
+.hero{min-height:100vh;min-height:100dvh;display:flex;align-items:center;padding:clamp(7rem,15vh,10rem) 0 clamp(4rem,8vh,6rem);position:relative;overflow:hidden}
+.hero-orb{position:absolute;border-radius:50%;filter:blur(60px);opacity:.4;pointer-events:none;will-change:transform}
+.hero-orb.o1{width:clamp(200px,35vw,450px);height:clamp(200px,35vw,450px);background:radial-gradient(circle,rgba(212,255,63,.35),transparent 70%);top:5%;right:-10%;animation:orbFloat 14s ease-in-out infinite}
+.hero-orb.o2{width:clamp(180px,30vw,400px);height:clamp(180px,30vw,400px);background:radial-gradient(circle,rgba(125,255,107,.25),transparent 70%);bottom:-5%;left:-10%;animation:orbFloat 18s ease-in-out infinite reverse}
+.hero-orb.o3{width:clamp(150px,25vw,320px);height:clamp(150px,25vw,320px);background:radial-gradient(circle,rgba(212,255,63,.15),transparent 70%);top:40%;left:40%;animation:orbFloat 22s ease-in-out infinite}
+@keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(40px,-30px) scale(1.1)}66%{transform:translate(-30px,40px) scale(.95)}}
+.hero-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center;position:relative;z-index:2}
+.hero-content{animation:heroFadeIn 1s var(--ease-out) both;animation-delay:.4s}
+@keyframes heroFadeIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.hero-badge{display:inline-flex;align-items:center;gap:.6rem;padding:.45rem 1rem;background:rgba(212,255,63,.08);border:1px solid rgba(212,255,63,.3);border-radius:50px;font-size:clamp(.72rem,1.1vw,.82rem);font-weight:500;color:var(--accent);margin-bottom:1.5rem;animation:badgePulse 3s ease-in-out infinite}
+.hero-badge i{font-size:.5rem;animation:blink 1.5s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+@keyframes badgePulse{0%,100%{box-shadow:0 0 0 rgba(212,255,63,0)}50%{box-shadow:0 0 25px rgba(212,255,63,.25)}}
+.hero h1{font-family:var(--font-display);font-size:clamp(2.8rem,8vw,6rem);line-height:.98;letter-spacing:2px;text-transform:uppercase;margin-bottom:1.5rem}
+.hero h1 .word{display:inline-block;opacity:0;transform:translateY(40px) rotate(4deg);animation:wordReveal .9s var(--ease-out) forwards}
+.hero h1 .word:nth-child(1){animation-delay:.6s}
+.hero h1 .word:nth-child(2){animation-delay:.75s}
+.hero h1 .word:nth-child(3){animation-delay:.9s}
+@keyframes wordReveal{to{opacity:1;transform:translateY(0) rotate(0)}}
+.hero h1 em{font-family:var(--font-serif);font-style:italic;text-transform:none;background:linear-gradient(120deg,var(--accent) 0%,#7dff6b 50%,var(--accent) 100%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:gradientShift 4s linear infinite,wordReveal .9s var(--ease-out) forwards;display:inline-block;opacity:0;transform:translateY(40px);animation-delay:1s}
+@keyframes gradientShift{to{background-position:200% center}}
+.hero p{font-size:clamp(1rem,1.5vw,1.15rem);color:var(--text-muted);max-width:520px;margin-bottom:clamp(1.75rem,3vw,2.5rem);animation:heroFadeIn 1s var(--ease-out) both;animation-delay:1.1s}
+.hero-buttons{display:flex;gap:1rem;flex-wrap:wrap;animation:heroFadeIn 1s var(--ease-out) both;animation-delay:1.3s}
+.hero-visual{position:relative;display:flex;justify-content:center;perspective:1200px;animation:heroCardIn 1.2s var(--ease-out) both;animation-delay:.7s}
+@keyframes heroCardIn{from{opacity:0;transform:translateY(60px) rotateX(10deg)}to{opacity:1;transform:translateY(0) rotateX(0)}}
+.hero-card{background:linear-gradient(145deg,#1a1a1a,#121212);border:1px solid var(--border);border-radius:20px;padding:clamp(1.5rem,3vw,2rem);width:100%;max-width:430px;position:relative;overflow:hidden;transition:transform .3s var(--ease-out);transform-style:preserve-3d;will-change:transform}
+.hero-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,var(--accent),#7dff6b,var(--accent));background-size:200% auto;animation:gradientShift 3s linear infinite}
+.hero-card::after{content:'';position:absolute;inset:0;border-radius:20px;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(212,255,63,.08),transparent 40%);opacity:0;transition:opacity .4s;pointer-events:none}
+.hero-card:hover::after{opacity:1}
+.hero-card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem}
+.hero-card-header span{font-size:.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1.5px}
+.hero-card-header i{color:var(--accent);animation:blink 2s ease-in-out infinite}
+.metric{margin-bottom:1.4rem}.metric:last-child{margin-bottom:0}
+.metric-label{font-size:.82rem;color:var(--text-muted);margin-bottom:.4rem}
+.metric-value{font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2rem);letter-spacing:1px;color:var(--text);display:flex;align-items:baseline;gap:.4rem}
+.metric-value span{color:var(--accent);font-size:.95rem;font-family:var(--font-body);font-weight:500}
+.progress-bar{height:6px;background:var(--border);border-radius:3px;overflow:hidden;margin-top:.55rem}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),#7dff6b);border-radius:3px;width:0;transition:width 1.8s var(--ease-out);box-shadow:0 0 12px rgba(212,255,63,.6)}
+.marquee{overflow:hidden;padding:clamp(1.5rem,3vw,2.5rem) 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--secondary);white-space:nowrap}
+.marquee-track{display:inline-flex;gap:3rem;animation:marquee 35s linear infinite;will-change:transform}
+.marquee:hover .marquee-track{animation-play-state:paused}
+@keyframes marquee{to{transform:translateX(-50%)}}
+.marquee-item{font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2.4rem);letter-spacing:3px;color:var(--text-muted);display:inline-flex;align-items:center;gap:3rem;flex-shrink:0}
+.marquee-item i{color:var(--accent);font-size:.7em;animation:spinSlow 8s linear infinite}
+@keyframes spinSlow{to{transform:rotate(360deg)}}
+.stats{padding:clamp(4rem,8vw,6rem) 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(1.5rem,3vw,2.5rem);text-align:center}
+.stat-item{padding:1rem;transition:transform .4s var(--ease-out)}
+.stat-item:hover{transform:translateY(-6px)}
+.stat-item h3{font-family:var(--font-display);font-size:clamp(2.2rem,4.5vw,3.5rem);letter-spacing:1px;line-height:1;background:linear-gradient(135deg,var(--accent),#7dff6b);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.stat-item p{font-size:clamp(.75rem,1.2vw,.9rem);color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-top:.4rem}
+.about{padding:clamp(5rem,10vw,8rem) 0;position:relative;overflow:hidden}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.5rem,6vw,5rem);align-items:center}
+.about-image{position:relative;overflow:hidden;border-radius:20px;background:#1a1a1a;min-height:340px}
+.about-image img{width:100%;height:clamp(340px,55vw,500px);object-fit:cover;object-position:center top;border-radius:20px;display:block;transition:transform .8s var(--ease-out),filter .5s;will-change:transform;filter:grayscale(10%);background:#1a1a1a}
+.about-image:hover img{transform:scale(1.05);filter:grayscale(0)}
+.about-image::after{content:'';position:absolute;inset:0;border:2px solid var(--accent);border-radius:20px;transform:translate(15px,15px);z-index:-1;pointer-events:none}
+.about-content h2{margin-bottom:1.5rem}
+.about-content p{color:var(--text-muted);margin-bottom:1.3rem;font-size:clamp(.95rem,1.2vw,1rem)}
+.about-content .highlight{color:var(--accent);font-weight:600;position:relative}
+.about-content .highlight::after{content:'';position:absolute;left:0;bottom:-2px;width:100%;height:1px;background:var(--accent);opacity:.4}
+.services{padding:clamp(5rem,10vw,8rem) 0;background:var(--secondary)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.25rem,2.5vw,2rem);margin-top:clamp(2rem,4vw,3rem)}
+.service-card{background:var(--card-bg);border:1px solid var(--border);border-radius:20px;padding:clamp(1.75rem,3.5vw,2.5rem);position:relative;overflow:hidden;transition:transform .4s var(--ease-out),box-shadow .4s;transform-style:preserve-3d;will-change:transform}
+.service-card::before{content:'';position:absolute;inset:-1px;border-radius:20px;padding:1px;background:conic-gradient(from var(--angle,0deg),transparent 0deg,var(--accent) 90deg,transparent 180deg);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .4s;animation:rotateAngle 4s linear infinite}
+.service-card:hover::before{opacity:1}
+@keyframes rotateAngle{to{--angle:360deg}}
+@property --angle{syntax:'<angle>';initial-value:0deg;inherits:false}
+.service-card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.service-icon{width:60px;height:60px;background:rgba(212,255,63,.1);border-radius:15px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--accent);margin-bottom:1.5rem;transition:transform .5s var(--ease-out),background .3s}
+.service-card:hover .service-icon{transform:rotate(-8deg) scale(1.1);background:rgba(212,255,63,.2)}
+.service-card h3{font-family:var(--font-display);font-size:clamp(1.35rem,2.2vw,1.6rem);letter-spacing:1px;margin-bottom:.9rem}
+.service-card p{color:var(--text-muted);font-size:.95rem;margin-bottom:1.3rem}
+.service-price{font-family:var(--font-display);font-size:clamp(1.5rem,2.5vw,1.8rem);color:var(--accent);letter-spacing:1px}
+.service-price span{font-family:var(--font-body);font-size:.8rem;color:var(--text-muted);font-weight:400}
+.service-card .btn{margin-top:1.5rem;width:100%}
+.testimonials{padding:clamp(5rem,10vw,8rem) 0}
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.25rem,2.5vw,2rem);margin-top:clamp(2rem,4vw,3rem)}
+.testimonial-card{background:var(--card-bg);border:1px solid var(--border);border-radius:20px;padding:clamp(1.5rem,3vw,2rem);transition:transform .4s var(--ease-out),border-color .3s,box-shadow .4s;position:relative;overflow:hidden}
+.testimonial-card::before{content:'"';position:absolute;top:-10px;right:15px;font-family:var(--font-serif);font-size:8rem;color:var(--accent);opacity:.08;line-height:1;pointer-events:none}
+.testimonial-card:hover{transform:translateY(-6px);border-color:rgba(212,255,63,.35);box-shadow:0 15px 40px rgba(0,0,0,.4)}
+.testimonial-stars{color:var(--accent);margin-bottom:1rem;font-size:.9rem;display:flex;gap:.2rem}
+.testimonial-stars i{animation:starPop .5s var(--ease-out) both}
+.testimonial-stars i:nth-child(1){animation-delay:.05s}.testimonial-stars i:nth-child(2){animation-delay:.1s}.testimonial-stars i:nth-child(3){animation-delay:.15s}.testimonial-stars i:nth-child(4){animation-delay:.2s}.testimonial-stars i:nth-child(5){animation-delay:.25s}
+@keyframes starPop{from{transform:scale(0) rotate(-45deg);opacity:0}to{transform:scale(1) rotate(0);opacity:1}}
+.testimonial-text{font-size:.95rem;color:var(--text-muted);margin-bottom:1.5rem;font-style:italic;line-height:1.7}
+.testimonial-author{display:flex;align-items:center;gap:1rem}
+.testimonial-author img{width:52px;height:52px;border-radius:50%;object-fit:cover;object-position:center;border:2px solid var(--accent);flex-shrink:0;display:block;background:#222;transition:transform .4s var(--ease-out)}
+.testimonial-card:hover .testimonial-author img{transform:scale(1.1) rotate(5deg)}
+.testimonial-author-info h4{font-size:.9rem;font-weight:600}
+testimonial-author-info p{font-size:.8rem;color:var(--text-muted)}
+.proof{padding:clamp(5rem,10vw,8rem) 0;background:var(--primary)}
+.proof-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(1rem,2.5vw,1.5rem);margin-top:clamp(2rem,4vw,3rem)}
+.proof-card{position:relative;overflow:hidden;border-radius:20px;border:1px solid var(--border);background:#111;height:clamp(300px,32vw,420px);box-shadow:0 16px 40px rgba(0,0,0,.28);transition:transform .4s var(--ease-out),border-color .3s,box-shadow .4s}
+.proof-card:hover{transform:translateY(-6px);border-color:rgba(212,255,63,.45);box-shadow:0 22px 50px rgba(0,0,0,.42)}
+.proof-card img{width:100%;height:100%;object-fit:contain;object-position:center;display:block;background:#111;transition:transform .6s var(--ease-out)}
+.proof-card:hover img{transform:scale(1.025)}
+.proof-badge{position:absolute;left:1rem;bottom:1rem;padding:.45rem .75rem;border-radius:999px;background:rgba(10,10,10,.86);border:1px solid rgba(212,255,63,.35);color:var(--accent);font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;backdrop-filter:blur(8px)}
+.blog{padding:clamp(5rem,10vw,8rem) 0;background:var(--secondary)}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.25rem,2.5vw,2rem);margin-top:clamp(2rem,4vw,3rem)}
+.blog-card{background:var(--card-bg);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:transform .4s var(--ease-out),border-color .3s,box-shadow .4s}
+.blog-card:hover{transform:translateY(-8px);border-color:rgba(212,255,63,.35);box-shadow:0 20px 40px rgba(0,0,0,.4)}
+.blog-card-image{height:clamp(180px,22vw,220px);overflow:hidden;position:relative;background:#1a1a1a}
+.blog-card-image img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .6s var(--ease-out)}
+.blog-card:hover .blog-card-image img{transform:scale(1.1)}
+.blog-card-content{padding:1.5rem}
+.blog-tag{display:inline-block;padding:.3rem .8rem;background:rgba(212,255,63,.1);color:var(--accent);border-radius:50px;font-size:.72rem;font-weight:500;margin-bottom:1rem;border:1px solid rgba(212,255,63,.2)}
+.blog-card-content h3{font-family:var(--font-display);font-size:clamp(1.15rem,1.8vw,1.4rem);letter-spacing:.5px;margin-bottom:.75rem;line-height:1.3;transition:color .3s}
+.blog-card:hover .blog-card-content h3{color:var(--accent)}
+.blog-card-content p{font-size:.88rem;color:var(--text-muted);margin-bottom:1rem}
+.blog-meta{font-size:.75rem;color:var(--text-muted);display:flex;gap:1rem;flex-wrap:wrap}
+.cta{padding:clamp(5rem,10vw,8rem) 0;text-align:center;position:relative;overflow:hidden}
+.cta::before{content:'';position:absolute;bottom:-50%;left:50%;transform:translateX(-50%);width:min(800px,120vw);height:min(800px,120vw);background:radial-gradient(circle,rgba(212,255,63,.08) 0%,transparent 70%);pointer-events:none;animation:ctaGlowPulse 4s ease-in-out infinite}
+@keyframes ctaGlowPulse{0%,100%{opacity:.5;transform:translateX(-50%) scale(1)}50%{opacity:1;transform:translateX(-50%) scale(1.15)}}
+.cta h2{font-family:var(--font-display);font-size:clamp(2rem,5vw,4rem);letter-spacing:2px;text-transform:uppercase;margin-bottom:1.5rem;line-height:1.05}
+.cta h2 em{font-family:var(--font-serif);font-style:italic;color:var(--accent);text-transform:none;display:inline-block;animation:softFloat 4s ease-in-out infinite}
+.cta p{font-size:clamp(.98rem,1.4vw,1.1rem);color:var(--text-muted);max-width:600px;margin:0 auto clamp(2rem,3vw,2.5rem);padding:0 1rem}
+.cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.cta .btn-primary{animation:ctaGlow 2.5s ease-in-out infinite}
+.footer{padding:clamp(3rem,6vw,4rem) 0 2rem;border-top:1px solid var(--border)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:clamp(2rem,4vw,3rem);margin-bottom:3rem}
+.footer-brand p{color:var(--text-muted);font-size:.9rem;margin-top:1rem;max-width:300px}
+.footer h4{font-family:var(--font-display);font-size:1.2rem;letter-spacing:1px;margin-bottom:1.3rem;color:var(--accent)}
+.footer ul li{margin-bottom:.7rem}
+.footer ul a{color:var(--text-muted);font-size:.9rem;transition:color var(--t),padding-left var(--t);display:inline-block}
+.footer ul a:hover{color:var(--accent);padding-left:6px}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;border-top:1px solid var(--border);font-size:.8rem;color:var(--text-muted);flex-wrap:wrap;gap:1rem}
+.footer-socials{display:flex;gap:.75rem}
+.footer-socials a{width:36px;height:36px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;transition:all var(--t)}
+.footer-socials a:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-3px) rotate(8deg)}
+.whatsapp-float{position:fixed;bottom:24px;left:24px;width:58px;height:58px;background:#25d366;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;z-index:999;box-shadow:0 8px 24px rgba(37,211,102,.4);transition:transform .3s var(--ease-out),box-shadow .3s;animation:whatsappFloat 2.5s ease-in-out infinite;will-change:transform}
+.whatsapp-float:hover{transform:scale(1.1) rotate(10deg);box-shadow:0 12px 32px rgba(37,211,102,.6);animation-play-state:paused}
+@keyframes whatsappFloat{0%,100%{box-shadow:0 8px 24px rgba(37,211,102,.4),0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 8px 24px rgba(37,211,102,.4),0 0 0 18px rgba(37,211,102,0)}100%{box-shadow:0 8px 24px rgba(37,211,102,.4),0 0 0 0 rgba(37,211,102,0)}}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s var(--ease-out),transform .9s var(--ease-out);will-change:opacity,transform}
+.reveal.active{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-50px);transition:opacity .9s var(--ease-out),transform .9s var(--ease-out)}
+.reveal-left.active{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(50px);transition:opacity .9s var(--ease-out),transform .9s var(--ease-out)}
+.reveal-right.active{opacity:1;transform:translateX(0)}
+.stagger>*{opacity:0;transform:translateY(30px);transition:opacity .8s var(--ease-out),transform .8s var(--ease-out)}
+.stagger.active>*{opacity:1;transform:translateY(0)}
+.stagger.active>*:nth-child(1){transition-delay:.1s}
+.stagger.active>*:nth-child(2){transition-delay:.2s}
+.stagger.active>*:nth-child(3){transition-delay:.3s}
+.stagger.active>*:nth-child(4){transition-delay:.4s}
+@media(max-width:1100px){
+  .hero-grid{grid-template-columns:1fr;text-align:center;gap:3rem}
+  .hero p{margin:0 auto 2.5rem}
+  .hero-buttons{justify-content:center}
+  .hero-visual{order:-1;max-width:450px;margin:0 auto;width:100%}
+  .about-grid{grid-template-columns:1fr;gap:3rem}
+  .about-image{max-width:500px;margin:0 auto;width:100%}
+  .services-grid,.testimonials-grid,.blog-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:900px){
+  .hamburger{display:flex}
+  .nav-links{position:fixed;inset:0;width:100%;height:100vh;height:100dvh;background:rgba(10,10,10,.98);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);flex-direction:column;justify-content:center;align-items:center;gap:2.2rem;opacity:0;visibility:hidden;transition:opacity .4s ease,visibility .4s ease;z-index:5;padding:2rem}
+  .nav-links.open{opacity:1;visibility:visible}
+  .nav-links>a:not(.btn){font-size:1.5rem;font-family:var(--font-display);letter-spacing:2px;color:var(--text);opacity:0;transform:translateY(20px);transition:opacity .5s var(--ease-out),transform .5s var(--ease-out),color .3s}
+  .nav-links.open>a:not(.btn){opacity:1;transform:translateY(0)}
+  .nav-links.open>a:nth-child(1){transition-delay:.15s}
+  .nav-links.open>a:nth-child(2){transition-delay:.23s}
+  .nav-links.open>a:nth-child(3){transition-delay:.31s}
+  .nav-links.open>a:nth-child(4){transition-delay:.39s}
+  .nav-links.open>a:nth-child(5){transition-delay:.47s}
+  .nav-links>a:not(.btn)::after{display:none}
+  .nav-links .btn{font-size:1rem;padding:1rem 2.5rem;animation:none;opacity:0;transform:translateY(20px);transition:opacity .5s var(--ease-out),transform .5s var(--ease-out)}
+  .nav-links.open .btn{opacity:1;transform:translateY(0);transition-delay:.55s}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .marquee-item{font-size:1.5rem}
+}
+@media(max-width:768px){
+  .services-grid,.testimonials-grid,.blog-grid{grid-template-columns:1fr}
+  .proof-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr;gap:2rem}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .cursor-dot,.cursor-ring{display:none}
+}
+@media(max-width:600px){
+  .hero{padding-top:6rem}
+  .hero-orb{opacity:.25}
+  .hero-card{padding:1.5rem}
+  .marquee-item{font-size:1.2rem;gap:1.5rem}
+  .marquee-track{gap:1.5rem}
+  .whatsapp-float{width:52px;height:52px;font-size:1.6rem;bottom:18px;left:18px}
+  .stat-item h3{font-size:2.2rem}
+  .btn{padding:.85rem 1.6rem;font-size:.85rem}
+  .section-title{letter-spacing:1px}
+}
+@media(max-width:400px){
+  .container{padding:0 .9rem}
+  .hero h1{font-size:2.5rem}
+  .hero-badge{font-size:.68rem;padding:.35rem .8rem}
+  .stats-grid{grid-template-columns:1fr 1fr;gap:1.2rem}
+  .stat-item h3{font-size:1.8rem}
+  .logo{font-size:1.1rem;gap:.5rem}
+  .logo-mark{width:34px;height:34px;font-size:1.2rem}
+  .logo-image{width:38px;height:38px}
+  .hero-buttons{flex-direction:column;width:100%}
+  .hero-buttons .btn{width:100%}
+  .cta-buttons{flex-direction:column;width:100%;padding:0 1rem}
+  .cta-buttons .btn{width:100%}
+  .whatsapp-float{width:48px;height:48px;font-size:1.4rem;bottom:14px;left:14px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}
+  .hero h1 .word,.hero h1 em{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<div class="preloader" id="preloader">
+  <div class="preloader-logo"><div class="preloader-mark">A</div>AFFILIATE GROWTH ACADEMY</div>
+  <div class="preloader-bar"><span></span></div>
+</div>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<nav class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="#" class="logo" aria-label="Affiliate Growth Academy"><img src="images/logo.jpg" class="logo-image" alt="Affiliate Growth Academy logo">AFFILIATE GROWTH ACADEMY</a>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#proof">Results</a>
+      <a href="#blog">Resources</a>
+      <a href="https://wa.me/2348165323305?text=Hi%2C%20I%27d%20like%20to%20book%20a%20call." class="btn btn-primary" target="_blank" rel="noopener" data-magnetic>Book a Call</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-orb o1"></div>
+  <div class="hero-orb o2"></div>
+  <div class="hero-orb o3"></div>
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <div class="hero-badge"><i class="fa-solid fa-circle"></i>Trusted by 500+ affiliate marketers</div>
+      <h1>
+        <span class="word">Turn</span>
+        <span class="word">Traffic</span>
+        <span class="word">Into</span>
+        <br><em>Income</em>
+      </h1>
+      <p>I help everyday people build profitable affiliate marketing businesses — without creating products, without a massive following, and without the guesswork. Real strategies. Real results.</p>
+      <div class="hero-buttons">
+        <a href="https://wa.me/2348165323305?text=Hi%2C%20I%27m%20ready%20to%20start%20my%20affiliate%20marketing%20journey." class="btn btn-primary" target="_blank" rel="noopener" data-magnetic>Start Your Journey <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="#services" class="btn btn-outline" data-magnetic>Explore Programs</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card" data-tilt>
+        <div class="hero-card-header"><span>Live Performance</span><i class="fa-solid fa-chart-line"></i></div>
+        <div class="metric">
+          <div class="metric-label">Avg. Student Monthly Income</div>
+          <div class="metric-value">$<span class="count" data-count="8038">0</span> <span>/mo</span></div>
+          <div class="progress-bar"><div class="progress-fill" data-width="78%"></div></div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Conversion Rate (Top Quartile)</div>
+          <div class="metric-value"><span class="count" data-count="8">0</span>%+</div>
+          <div class="progress-bar"><div class="progress-fill" data-width="92%"></div></div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Students Coached to 6-Figures</div>
+          <div class="metric-value"><span class="count" data-count="120">0</span>+</div>
+          <div class="progress-bar"><div class="progress-fill" data-width="65%"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span class="marquee-item"><i class="fa-solid fa-star"></i> Traffic <i class="fa-solid fa-star"></i> Conversions <i class="fa-solid fa-star"></i> Commissions <i class="fa-solid fa-star"></i> Scale <i class="fa-solid fa-star"></i> Repeat <i class="fa-solid fa-star"></i></span>
+    <span class="marquee-item"><i class="fa-solid fa-star"></i> Traffic <i class="fa-solid fa-star"></i> Conversions <i class="fa-solid fa-star"></i> Commissions <i class="fa-solid fa-star"></i> Scale <i class="fa-solid fa-star"></i> Repeat <i class="fa-solid fa-star"></i></span>
+  </div>
+</div>
+
+<section class="stats">
+  <div class="container stats-grid stagger">
+    <div class="stat-item"><h3><span class="count" data-count="20">0</span>B</h3><p>Global Affiliate Market ($)</p></div>
+    <div class="stat-item"><h3><span class="count" data-count="87">0</span>%</h3><p>Advertiser ROI Satisfaction</p></div>
+    <div class="stat-item"><h3><span class="count" data-count="9">0</span>%</h3><p>Earn ₦5,000,000+/Month</p></div>
+    <div class="stat-item"><h3><span class="count" data-count="15">0</span>x</h3><p>Average ROI Per ₦1 Spent</p></div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="about-image reveal-left">
+      <img
+        src="images/ceo.jpg"
+        alt="Founder of Affiliate Growth Academy"
+        width="900" height="1100"
+        loading="eager"
+        referrerpolicy="no-referrer"
+        onerror="this.onerror=null;this.src='data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 900 1100%22%3E%3Crect width=%22900%22 height=%221100%22 fill=%22%231a1a1a%22/%3E%3Ccircle cx=%22450%22 cy=%22450%22 r=%22200%22 fill=%22%23d4ff3f%22 opacity=%220.4%22/%3E%3Ctext x=%22450%22 y=%22750%22 text-anchor=%22middle%22 font-family=%22Arial%2Csans-serif%22 font-size=%2272%22 font-weight=%22900%22 fill=%22%23d4ff3f%22%3EFOUNDER%3C/text%3E%3C/svg%3E';">
+    </div>
+    <div class="about-content reveal-right">
+      <h2 class="section-title">Meet Your <em>Mentor</em></h2>
+      <p>I'm not a guru who got lucky. I'm a marketer who spent <span class="highlight">a decade</span> building affiliate sites, testing campaigns, and learning what actually moves the needle.</p>
+      <p>After generating <span class="highlight">7 figures</span> in affiliate commissions across niches like SaaS, finance, and e-commerce, I realized the biggest gap wasn't information — it was <span class="highlight">implementation and accountability</span>.</p>
+      <p>That's why I built Affiliate Growth Academy. Not another course you'll never finish. A mentorship ecosystem that gives you the strategy, the tools, and the direct access to build a real business.</p>
+      <a href="https://wa.me/2348165323305?text=Hi%2C%20I%27d%20like%20to%20work%20with%20you%20on%20affiliate%20marketing." class="btn btn-primary" style="margin-top:1rem;" target="_blank" rel="noopener" data-magnetic>Work With Me <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<section class="about coach-section" id="coach">
+  <div class="container about-grid">
+    <div class="about-image reveal-left">
+      <img
+        src="images/coach.jpg"
+        alt="Emmanuel Okoli - Affiliate Marketing Coach"
+        width="900" height="1100"
+        loading="eager"
+        referrerpolicy="no-referrer"
+        onerror="this.onerror=null;this.src='data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 900 1100%22%3E%3Crect width=%22900%22 height=%221100%22 fill=%22%231a1a1a%22/%3E%3Ccircle cx=%22450%22 cy=%22450%22 r=%22200%22 fill=%22%23d4ff3f%22 opacity=%220.4%22/%3E%3Ctext x=%22450%22 y=%22750%22 text-anchor=%22middle%22 font-family=%22Arial%2Csans-serif%22 font-size=%2272%22 font-weight=%22900%22 fill=%22%23d4ff3f%22%3ECOACH%3C/text%3E%3C/svg%3E';">
+    </div>
+    <div class="about-content reveal-right">
+      <h2 class="section-title">Meet <em>Emmanuel Okoli</em></h2>
+      <p>Emmanuel Okoli is a <span class="highlight">results-driven affiliate marketing coach</span> helping people build profitable online income systems without confusion, guesswork, or fake shortcuts.</p>
+      <p>He specializes in <span class="highlight">traffic, content strategy, and conversion</span>, guiding students to attract the right audience, build trust, and turn attention into commissions.</p>
+      <p>His coaching approach is simple: clear strategy, practical action, and accountability that helps you move from beginner to confident marketer.</p>
+      <a href="https://wa.me/2348165323305?text=Hi%2C%20I%27d%20like%20to%20book%20a%20coaching%20call%20with%20Emmanuel%20Okoli." class="btn btn-primary" style="margin-top:1rem;" target="_blank" rel="noopener" data-magnetic>Book a Coaching Call <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<section class="results-showcase" id="results-showcase">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2 class="section-title">Inside the <em>Affiliate Growth Academy</em> System</h2>
+      <p class="section-subtitle">From strategy to conversion, every step is designed to help you build trust, attract buyers, and scale profitably.</p>
+    </div>
+
+    <div class="carousel-shell">
+      <div class="carousel" aria-label="Affiliate marketing growth showcase carousel">
+        <button class="carousel-button prev" type="button" aria-label="Previous slide"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="carousel-viewport">
+          <div class="carousel-track">
+            <article class="slide">
+              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80" alt="Marketing strategy planning session" loading="lazy" referrerpolicy="no-referrer">
+              <div class="slide-content">
+                <span class="slide-tag">Strategy</span>
+                <h3>Choose a profitable niche</h3>
+                <p>We identify the offers, audiences, and positioning that create the strongest opportunity for consistent commissions.</p>
+              </div>
+            </article>
+            <article class="slide">
+              <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80" alt="Team collaborating on content and campaigns" loading="lazy" referrerpolicy="no-referrer">
+              <div class="slide-content">
+                <span class="slide-tag">Content</span>
+                <h3>Build trust with content</h3>
+                <p>Content that attracts your ideal audience and turns attention into action through clarity, trust, and value.</p>
+              </div>
+            </article>
+            <article class="slide">
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt="Analytics dashboard showing performance growth" loading="lazy" referrerpolicy="no-referrer">
+              <div class="slide-content">
+                <span class="slide-tag">Optimization</span>
+                <h3>Track and improve performance</h3>
+                <p>We monitor conversion data, refine calls to action, and scale what is working instead of guessing.</p>
+              </div>
+            </article>
+            <article class="slide">
+              <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80" alt="Business owner reviewing results and growing revenue" loading="lazy" referrerpolicy="no-referrer">
+              <div class="slide-content">
+                <span class="slide-tag">Scale</span>
+                <h3>Turn momentum into income</h3>
+                <p>Once your process is working, we expand your offers, traffic sources, and systems to compound results.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+        <button class="carousel-button next" type="button" aria-label="Next slide"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+      <div class="carousel-dots" aria-label="Carousel pagination">
+        <button class="carousel-dot active" type="button" aria-label="Go to slide 1"></button>
+        <button class="carousel-dot" type="button" aria-label="Go to slide 2"></button>
+        <button class="carousel-dot" type="button" aria-label="Go to slide 3"></button>
+        <button class="carousel-dot" type="button" aria-label="Go to slide 4"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <h2 class="section-title reveal">Ways to <em>Work Together</em></h2>
+    <p class="section-subtitle reveal">Whether you're just starting or scaling to six figures, there's a path for you.</p>
+    <div class="services-grid stagger">
+      <div class="service-card" data-tilt>
+        <div class="service-icon"><i class="fa-solid fa-rocket"></i></div>
+        <h3>Launch Accelerator</h3>
+        <p>Perfect for beginners. Learn how to pick a profitable niche, join the right affiliate programs, and build your first converting funnel — step by step.</p>
+        <div class="service-price">₦10,000 <span>one-time</span></div>
+        <a href="https://wa.me/2348165323305?text=Hi%2C%20I%27m%20interested%20in%20the%20Launch%20Accelerator%20program." class="btn btn-outline" target="_blank" rel="noopener">Get Started</a>
+      </div>
+      <div class="service-card" data-tilt>
+        <div class="service-icon"><i class="fa-solid fa-chart-simple"></i></div>
+        <h3>1:1 Mentorship</h3>
+        <p>Three 45-minute calls per month, unlimited chat support, and a personalized growth plan. We look at your actual site and fix what's broken.</p>
+        <div class="service-price">₦50,000 <span>/month</span></div>
+        <a href="https://wa.me/2348165323305?text=Hi%2C%20I%27d%20like%20to%20apply%20for%201%3A1%20Mentorship." class="btn btn-outline" target="_blank" rel="noopener">Apply Now</a>
+      </div>
+      <div class="service-card" data-tilt>
+        <div class="service-icon"><i class="fa-solid fa-users"></i></div>
+        <h3>Inner Circle</h3>
+        <p>Weekly live training, a private community of serious marketers, and first access to new strategies. For those who want to scale fast.</p>
+        <div class="service-price">₦25,000 <span>/month</span></div>
+        <a href="https://wa.me/2348165323305?text=Hi%2C%20I%27d%20like%20to%20join%20the%20Inner%20Circle." class="btn btn-outline" target="_blank" rel="noopener">Join Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span class="marquee-item"><i class="fa-solid fa-bolt"></i> Strategy <i class="fa-solid fa-bolt"></i> Mentorship <i class="fa-solid fa-bolt"></i> Accountability <i class="fa-solid fa-bolt"></i> Results <i class="fa-solid fa-bolt"></i> Growth <i class="fa-solid fa-bolt"></i></span>
+    <span class="marquee-item"><i class="fa-solid fa-bolt"></i> Strategy <i class="fa-solid fa-bolt"></i> Mentorship <i class="fa-solid fa-bolt"></i> Accountability <i class="fa-solid fa-bolt"></i> Results <i class="fa-solid fa-bolt"></i> Growth <i class="fa-solid fa-bolt"></i></span>
+  </div>
+</div>
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <h2 class="section-title reveal">Real People. <em>Real Results.</em></h2>
+    <p class="section-subtitle reveal">Don't take my word for it. Here's what happens when you put in the work.</p>
+    <div class="testimonials-grid stagger">
+      <div class="testimonial-card">
+        <div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="testimonial-text">"I paid four figures for another coaching program and didn't learn a fraction of what I got here. The weekly calls are the difference-maker — every single session delivers at least one 'diamond' I can apply the same day."</p>
+        <div class="testimonial-author">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&q=80&auto=format&fit=crop&crop=faces&ixlib=rb-4.0.3"
+            alt="Marcus T." width="52" height="52" loading="lazy" referrerpolicy="no-referrer"
+            onerror="this.onerror=null;this.src='data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 150 150%22%3E%3Crect width=%22150%22 height=%22150%22 fill=%22%23d4ff3f%22/%3E%3Ctext x=%2275%22 y=%2295%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2256%22 font-weight=%22900%22 fill=%22%230a0a0a%22%3EMT%3C/text%3E%3C/svg%3E';">
+          <div class="testimonial-author-info"><h4>Marcus T.</h4><p>Affiliate Marketer, 2 years</p></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="testimonial-text">"The training is practical and up to date. You're not left on your own — there are weekly Zoom calls and an active board where you can always find help. If you're willing to put in the work, it really pays off."</p>
+        <div class="testimonial-author">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&q=80&auto=format&fit=crop&crop=faces&ixlib=rb-4.0.3"
+            alt="Sarah K." width="52" height="52" loading="lazy" referrerpolicy="no-referrer"
+            onerror="this.onerror=null;this.src='data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 150 150%22%3E%3Crect width=%22150%22 height=%22150%22 fill=%22%237dff6b%22/%3E%3Ctext x=%2275%22 y=%2295%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2256%22 font-weight=%22900%22 fill=%22%230a0a0a%22%3ESK%3C/text%3E%3C/svg%3E';">
+          <div class="testimonial-author-info"><h4>Sarah K.</h4><p>Content Creator & Affiliate</p></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="testimonial-text">"Since joining, my affiliate journey has completely transformed. The coaching calls and support helped me move forward much faster than I ever imagined. My mentor's experience helped me understand strategies on a deeper level."</p>
+        <div class="testimonial-author">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&q=80&auto=format&fit=crop&crop=faces&ixlib=rb-4.0.3"
+            alt="David R." width="52" height="52" loading="lazy" referrerpolicy="no-referrer"
+            onerror="this.onerror=null;this.src='data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 150 150%22%3E%3Crect width=%22150%22 height=%22150%22 fill=%22%23b8e62e%22/%3E%3Ctext x=%2275%22 y=%2295%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2256%22 font-weight=%22900%22 fill=%22%230a0a0a%22%3EDR%3C/text%3E%3C/svg%3E';">
+          <div class="testimonial-author-info"><h4>David R.</h4><p>Full-time Affiliate, 3 years</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="proof" id="proof">
+  <div class="container">
+    <h2 class="section-title reveal">The Proof <em>Speaks</em></h2>
+    <p class="section-subtitle reveal">A closer look at real dashboards, affiliate activity, and the results our system helps people pursue.</p>
+    <div class="proof-grid">
+      <figure class="proof-card">
+        <img src="proof images/proof1.jpg" alt="Affiliate marketing proof screenshot 1" width="499" height="577" loading="lazy">
+        <figcaption class="proof-badge">Member Result</figcaption>
+      </figure>
+      <figure class="proof-card">
+        <img src="proof images/proof2.jpg" alt="Affiliate marketing proof screenshot 2" width="1080" height="953" loading="lazy">
+        <figcaption class="proof-badge">Verified Dashboard</figcaption>
+      </figure>
+      <figure class="proof-card">
+        <img src="proof images/proof3.jpg" alt="Affiliate marketing proof screenshot 3" width="1030" height="1080" loading="lazy">
+        <figcaption class="proof-badge">Performance Update</figcaption>
+      </figure>
+      <figure class="proof-card">
+        <img src="proof images/proof4.jpg" alt="Affiliate marketing proof screenshot 4" width="540" height="964" loading="lazy">
+        <figcaption class="proof-badge">Growth in Action</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="blog" id="blog">
+  <div class="container">
+    <h2 class="section-title reveal">Affiliate Marketing <em>Insights</em></h2>
+    <p class="section-subtitle reveal">Free resources to help you understand the game before you play it.</p>
+    <div class="blog-grid stagger">
+      <article class="blog-card">
+        <div class="blog-card-image">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&q=80&auto=format&fit=crop&ixlib=rb-4.0.3"
+            alt="Affiliate marketing analytics dashboard" width="600" height="400" loading="lazy" referrerpolicy="no-referrer"
+            onerror="this.onerror=null;this.src='data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 600 400%22%3E%3Crect width=%22600%22 height=%22400%22 fill=%22%231a1a1a%22/%3E%3Cg transform=%22translate(80%2C280)%22%3E%3Crect x=%220%22 y=%22-80%22 width=%2240%22 height=%2280%22 fill=%22%23d4ff3f%22 opacity=%220.5%22/%3E%3Crect x=%2260%22 y=%22-140%22 width=%2240%22 height=%22140%22 fill=%22%23d4ff3f%22 opacity=%220.7%22/%3E%3Crect x=%22120%22 y=%22-200%22 width=%2240%22 height=%22200%22 fill=%22%23d4ff3f%22/%3E%3Crect x=%22180%22 y=%22-160%22 width=%2240%22 height=%22160%22 fill=%22%23d4ff3f%22 opacity=%220.8%22/%3E%3Crect x=%22240%22 y=%22-240%22 width=%2240%22 height=%22240%22 fill=%22%237dff6b%22/%3E%3C/g%3E%3C/svg%3E';">
+        </div>
+        <div class="blog-card-content">
+          <span class="blog-tag">Fundamentals</span>
+          <h3>What Is Affiliate Marketing & How Does It Actually Work?</h3>
+          <p>You promote products you don't own, and earn a commission when someone buys through your unique link. Simple in theory — here's how to do it right.</p>
+          <div class="blog-meta"><span><i class="fa-regular fa-clock"></i> 8 min read</span><span><i class="fa-regular fa-calendar"></i> Jan 2026</span></div>
+        </div>
+      </article>
+      <article class="blog-card">
+        <div class="blog-card-image">
+          <img src="images/proof1.jpg" alt="Income charts and analytics" width="600" height="400" loading="lazy" referrerpolicy="no-referrer"
+            onerror="this.onerror=null;this.src='data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 600 400%22%3E%3Crect width=%22600%22 height=%22400%22 fill=%22%23141414%22/%3E%3Ccircle cx=%22300%22 cy=%22200%22 r=%22140%22 fill=%22none%22 stroke=%22%23d4ff3f%22 stroke-width=%222%22 opacity=%220.4%22/%3E%3Ccircle cx=%22300%22 cy=%22200%22 r=%2280%22 fill=%22%23d4ff3f%22 opacity=%220.8%22/%3E%3C/svg%3E';">
+        </div>
+        <div class="blog-card-content">
+          <span class="blog-tag">Income</span>
+          <h3>How Much Do Affiliate Marketers Really Make in 2026?</h3>
+          <p>41% earn less than $1,000/month. 9% earn over $50,000/month. The average is misleading — here's the realistic breakdown by experience level.</p>
+          <div class="blog-meta"><span><i class="fa-regular fa-clock"></i> 6 min read</span><span><i class="fa-regular fa-calendar"></i> Feb 2026</span></div>
+        </div>
+      </article>
+      <article class="blog-card">
+        <div class="blog-card-image">
+          <img src="https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=600&h=400&q=80&auto=format&fit=crop&ixlib=rb-4.0.3"
+            alt="Workspace with laptop and notes" width="600" height="400" loading="lazy" referrerpolicy="no-referrer"
+            onerror="this.onerror=null;this.src='data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 600 400%22%3E%3Crect width=%22600%22 height=%22400%22 fill=%22%23181818%22/%3E%3Cg transform=%22translate(300%2C200)%22%3E%3Ccircle r=%2228%22 fill=%22%23d4ff3f%22/%3E%3Ctext y=%2210%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2222%22 font-weight=%22900%22 fill=%22%230a0a0a%22%3E1%3C/text%3E%3C/g%3E%3C/svg%3E';">
+        </div>
+        <div class="blog-card-content">
+          <span class="blog-tag">Beginner Guide</span>
+          <h3>The 7-Step Framework to Your First Affiliate Commission</h3>
+          <p>Pick a niche. Choose programs. Build content. Drive traffic. Track results. Optimize. Scale. This is the exact order that works.</p>
+          <div class="blog-meta"><span><i class="fa-regular fa-clock"></i> 10 min read</span><span><i class="fa-regular fa-calendar"></i> Mar 2026</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="container">
+    <h2 class="reveal">Ready to Stop Guessing and <em>Start Earning?</em></h2>
+    <p class="reveal">Book a free 15-minute discovery call. We'll look at where you are, where you want to go, and whether I'm the right person to help you get there.</p>
+    <div class="cta-buttons reveal">
+      <a href="https://wa.me/2348165323305?text=Hi%2C%20I%27d%20like%20to%20book%20my%20free%2015-minute%20discovery%20call." class="btn btn-primary" target="_blank" rel="noopener" data-magnetic>Book Your Free Call <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="#services" class="btn btn-outline" data-magnetic>View Programs</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo"><div class="logo-mark">A</div>AFFILIATE GROWTH ACADEMY</a>
+        <p>Helping everyday people build profitable affiliate marketing businesses with real strategy, real mentorship, and real accountability.</p>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#proof">Results</a></li>
+          <li><a href="#blog">Resources</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Programs</h4>
+        <ul>
+          <li><a href="#services">Launch Accelerator</a></li>
+          <li><a href="#services">1:1 Mentorship</a></li>
+          <li><a href="#services">Inner Circle</a></li>
+          <li><a href="https://wa.me/2348165323305?text=Hi%2C%20I%27d%20like%20to%20book%20a%20call." target="_blank" rel="noopener">Book a Call</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.tiktok.com/@uwcee1" target="_blank" rel="noopener">TikTok</a></li>
+          <li><a href="mailto:santiavega343@gmail.com">Email</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Affiliate Growth Academy. All rights reserved.</p>
+      <div class="footer-socials">
+        <a href="https://www.tiktok.com/@uwcee1" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="mailto:santiavega343@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+<a href="https://wa.me/2348165323305?text=Hi%2C%20I%27d%20like%20to%20book%20a%20discovery%20call." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<script>
+window.addEventListener('load', () => {
+  setTimeout(() => document.getElementById('preloader').classList.add('done'), 1600);
+});
+const scrollProgress = document.getElementById('scrollProgress');
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  const height = document.documentElement.scrollHeight - window.innerHeight;
+  scrollProgress.style.width = (scrolled / height) * 100 + '%';
+}, { passive: true });
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
+}, { passive: true });
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+hamburger.addEventListener('click', () => {
+  const isOpen = navLinks.classList.toggle('open');
+  hamburger.classList.toggle('active', isOpen);
+  hamburger.setAttribute('aria-expanded', isOpen);
+  document.body.classList.toggle('menu-open', isOpen);
+});
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    if (navLinks.classList.contains('open')) {
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', false);
+      document.body.classList.remove('menu-open');
+    }
+  });
+});
+const revealSelector = '.reveal,.reveal-left,.reveal-right,.stagger,.about-image';
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+document.querySelectorAll(revealSelector).forEach(el => revealObserver.observe(el));
+const animateCounter = (el) => {
+  const target = parseInt(el.dataset.count, 10);
+  const duration = 1800;
+  const start = performance.now();
+  const update = (now) => {
+    const p = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.floor(target * eased).toLocaleString();
+    if (p < 1) requestAnimationFrame(update);
+    else el.textContent = target.toLocaleString();
+  };
+  requestAnimationFrame(update);
+};
+const animationObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    if (el.classList.contains('progress-fill')) el.style.width = el.dataset.width;
+    if (el.classList.contains('count')) animateCounter(el);
+    animationObserver.unobserve(el);
+  });
+}, { threshold: 0.4 });
+document.querySelectorAll('.progress-fill, .count').forEach(el => animationObserver.observe(el));
+if (window.matchMedia('(hover:hover) and (pointer:fine)').matches) {
+  document.querySelectorAll('[data-tilt]').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const rotateX = ((y / rect.height) - 0.5) * -10;
+      const rotateY = ((x / rect.width) - 0.5) * 10;
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+      if (card.classList.contains('hero-card')) {
+        card.style.setProperty('--mx', x + 'px');
+        card.style.setProperty('--my', y + 'px');
+      }
+    });
+    card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+  });
+  document.querySelectorAll('[data-magnetic]').forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      btn.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
+    });
+    btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+  });
+}
+const dot = document.getElementById('cursorDot');
+const ring = document.getElementById('cursorRing');
+if (dot && ring && window.matchMedia('(hover:hover) and (pointer:fine)').matches) {
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', (e) => {
+    mx = e.clientX; my = e.clientY;
+    dot.style.left = mx + 'px';
+    dot.style.top = my + 'px';
+  });
+  const loop = () => {
+    rx += (mx - rx) * 0.15;
+    ry += (my - ry) * 0.15;
+    ring.style.left = rx + 'px';
+    ring.style.top = ry + 'px';
+    requestAnimationFrame(loop);
+  };
+  loop();
+  document.querySelectorAll('a, button, [data-tilt], [data-magnetic]').forEach(el => {
+    el.addEventListener('mouseenter', () => ring.classList.add('hover'));
+    el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
+  });
+}
+const carousel = document.querySelector('.carousel');
+if (carousel) {
+  const track = carousel.querySelector('.carousel-track');
+  const slides = [...carousel.querySelectorAll('.slide')];
+  const dots = [...carousel.querySelectorAll('.carousel-dot')];
+  const prevButton = carousel.querySelector('.carousel-button.prev');
+  const nextButton = carousel.querySelector('.carousel-button.next');
+  let currentIndex = 0;
+  const updateCarousel = (nextIndex) => {
+    currentIndex = (nextIndex + slides.length) % slides.length;
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    dots.forEach((dot, index) => dot.classList.toggle('active', index === currentIndex));
+  };
+  prevButton?.addEventListener('click', () => updateCarousel(currentIndex - 1));
+  nextButton?.addEventListener('click', () => updateCarousel(currentIndex + 1));
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => updateCarousel(index));
+  });
+  setInterval(() => updateCarousel(currentIndex + 1), 4500);
+}
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const href = this.getAttribute('href');
+    if (href === '#' || href.length < 2) return;
+    const target = document.querySelector(href);
+    if (target) {
+      e.preventDefault();
+      const offset = 70;
+      const y = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+
+
+
