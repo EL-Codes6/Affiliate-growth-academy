@@ -68,7 +68,7 @@ button{font-family:inherit}
 .preloader{position:fixed;inset:0;background:var(--primary);z-index:10000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;transition:opacity .8s ease,visibility .8s ease}
 .preloader.done{opacity:0;visibility:hidden}
 .preloader-logo{font-family:var(--font-display);font-size:clamp(2rem,6vw,4rem);letter-spacing:4px;display:flex;align-items:center;gap:1rem}
-.preloader-mark{width:60px;height:60px;background:var(--accent);color:var(--primary);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:2rem;animation:spinPulse 1.5s ease-in-out infinite}
+.preloader-mark{width:60px;height:60px;object-fit:cover;border-radius:12px;animation:spinPulse 1.5s ease-in-out infinite}
 .preloader-bar{width:200px;height:3px;background:var(--border);border-radius:3px;overflow:hidden}
 .preloader-bar span{display:block;height:100%;background:var(--accent);width:0;animation:loadBar 1.8s var(--ease-out) forwards}
 @keyframes loadBar{to{width:100%}}
@@ -326,7 +326,7 @@ testimonial-author-info p{font-size:.8rem;color:var(--text-muted)}
 <body>
 
 <div class="preloader" id="preloader">
-  <div class="preloader-logo"><div class="preloader-mark">A</div>AFFILIATE GROWTH ACADEMY</div>
+  <div class="preloader-logo"><img class="preloader-mark" src="images/logo.jpg" alt="">AFFILIATE GROWTH ACADEMY</div>
   <div class="preloader-bar"><span></span></div>
 </div>
 
@@ -363,7 +363,7 @@ testimonial-author-info p{font-size:.8rem;color:var(--text-muted)}
         <span class="word">Into</span>
         <br><em>Income</em>
       </h1>
-      <p>I help everyday people build profitable affiliate marketing businesses — without creating products, without a massive following, and without the guesswork. Real strategies. Real results.</p>
+      <p>I help everyday people build profitable affiliate marketing businesses — without needing a massive following or prior experience. Just Practical strategies, Proven Methods, Real results.</p>
       <div class="hero-buttons">
         <a href="https://wa.me/2348165323305?text=Hi%2C%20I%27m%20ready%20to%20start%20my%20affiliate%20marketing%20journey." class="btn btn-primary" target="_blank" rel="noopener" data-magnetic>Start Your Journey <i class="fa-solid fa-arrow-right"></i></a>
         <a href="#services" class="btn btn-outline" data-magnetic>Explore Programs</a>
@@ -420,8 +420,8 @@ testimonial-author-info p{font-size:.8rem;color:var(--text-muted)}
         onerror="this.onerror=null;this.src='data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 900 1100%22%3E%3Crect width=%22900%22 height=%221100%22 fill=%22%231a1a1a%22/%3E%3Ccircle cx=%22450%22 cy=%22450%22 r=%22200%22 fill=%22%23d4ff3f%22 opacity=%220.4%22/%3E%3Ctext x=%22450%22 y=%22750%22 text-anchor=%22middle%22 font-family=%22Arial%2Csans-serif%22 font-size=%2272%22 font-weight=%22900%22 fill=%22%23d4ff3f%22%3EFOUNDER%3C/text%3E%3C/svg%3E';">
     </div>
     <div class="about-content reveal-right">
-      <h2 class="section-title">Meet Your <em>Mentor</em></h2>
-      <p>I'm not a guru who got lucky. I'm a marketer who spent <span class="highlight">a decade</span> building affiliate sites, testing campaigns, and learning what actually moves the needle.</p>
+      <h2 class="section-title">Meet Your <em>CEO</em></h2>
+      <p>I'm not a guru who got lucky. I'm a marketer who spent <span class="highlight">a decade</span> building my knowledge of affiliate marketing, testing campaigns, and learning what actually moves the needle.</p>
       <p>After generating <span class="highlight">7 figures</span> in affiliate commissions across niches like SaaS, finance, and e-commerce, I realized the biggest gap wasn't information — it was <span class="highlight">implementation and accountability</span>.</p>
       <p>That's why I built Affiliate Growth Academy. Not another course you'll never finish. A mentorship ecosystem that gives you the strategy, the tools, and the direct access to build a real business.</p>
       <a href="https://wa.me/2348165323305?text=Hi%2C%20I%27d%20like%20to%20work%20with%20you%20on%20affiliate%20marketing." class="btn btn-primary" style="margin-top:1rem;" target="_blank" rel="noopener" data-magnetic>Work With Me <i class="fa-solid fa-arrow-right"></i></a>
